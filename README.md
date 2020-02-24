@@ -1,6 +1,6 @@
 # wheel-dragging
 
-![npm](https://img.shields.io/npm/v/wheel-dragging)
+[![npm](https://img.shields.io/npm/v/wheel-dragging)](https://www.npmjs.com/package/wheel-dragging)
 
 ## Motivation
 
