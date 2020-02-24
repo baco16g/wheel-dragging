@@ -1,5 +1,7 @@
 # wheel-dragging
 
+![npm](https://img.shields.io/npm/v/wheel-dragging)
+
 ## Motivation
 
 [The specification of drag and drop](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) has the following description.
