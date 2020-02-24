@@ -1,6 +1,13 @@
 name: Validation
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+      - 'releases/**'
 
 jobs:
   build:

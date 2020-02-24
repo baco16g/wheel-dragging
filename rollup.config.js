@@ -6,10 +6,6 @@ const banner = `/*! @preserve ${pkg.name} v${pkg.version} - ${pkg.author} | ${pk
 
 export default {
   input: "src/index.ts",
-  //   external: [
-  //     ...Object.keys(pkg.peerDependencies),
-  //     ...Object.keys(pkg.dependencies)
-  //   ],
   output: [
     {
       banner,
