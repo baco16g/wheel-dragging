@@ -11,6 +11,8 @@
 A bad consequence of this restriction is that mousewheel can't be used to scroll pages or containers while dragging something.
 If you use [HTML Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) to sort a list that owns a large number of items, it will lead to a bad UX.
 
+* [DEMO that can confirm the restriction](https://cannotbedragged.now.sh/)
+
 ## Outline
 
 This package provides methods that allows you to turn [WheelEvent](https://developer.mozilla.org/ja/docs/Web/API/WheelEvent) on and off at any time.
