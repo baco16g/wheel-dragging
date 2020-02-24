@@ -1,0 +1,84 @@
+{
+  "name": "wheel-dragging",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/wheel-dragging.cjs.js",
+  "module": "dist/wheel-dragging.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "run-s clean build:js build:types",
+    "build:js": "rollup -c",
+    "build:types": "tsc",
+    "test": "jest",
+    "test:watch": "yarn test --watch",
+    "lint": "eslint \"src/**/*.ts\"",
+    "format": "run-s format:prettier format:eslint",
+    "format:prettier": "prettier --write \"**/*.+(ts|js|md|json|html)\"",
+    "format:eslint": "npm run lint --fix",
+    "clean": "rimraf dist",
+    "release": "np",
+    "serve": "serve",
+    "open:examples": "open-cli http://localhost:5000/examples/",
+    "examples": "run-s build:js open:examples serve"
+  },
+  "keywords": [
+    "wheel",
+    "drag"
+  ],
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/baco16g/wheel-dragging.git"
+  },
+  "author": "baco16g",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baco16g/wheel-dragging/issues"
+  },
+  "homepage": "https://github.com/baco16g/wheel-dragging#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/jest": "^25.1.3",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "jest-dom": "^4.0.0",
+    "lint-staged": "^10.0.7",
+    "np": "^6.1.0",
+    "npm-run-all": "^4.1.5",
+    "open-cli": "^5.0.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "serve": "^11.3.0",
+    "typescript": "^3.8.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,md,json|html}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "test"
+    ]
+  }
+}

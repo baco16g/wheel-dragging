@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mouse wheel not allowed while dragging</title>
+    <style type="text/css">
+      #wheel-target {
+        padding: 3px 6px;
+        border: dashed 1px black;
+        margin-left: 12px;
+        font-size: 10px;
+      }
+      .controller {
+        border: solid 2px black;
+        padding: 12px;
+      }
+      #object {
+        display: inline-block;
+        min-width: 100px;
+        padding: 12px;
+        background: lightgreen;
+        box-shadow: 2px 2px 3px 2px green;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="controller">
+      Click the following button to add/remove a handler of the wheel event to
+      target<br />
+      <button id="add">Add event listener</button>
+      <button id="remove" disabled>Remove event listener</button>
+      <span id="wheel-target">This is a target for wheel event</span>
+    </p>
+    <div id="object" draggable="true">
+      This is a draggable object.<br />
+      <span>Now, mouse wheel allowed while dragging.</span>
+    </div>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <p>bla</p>
+    <script type="text/javascript">
+      const add = document.getElementById("add");
+      const remove = document.getElementById("remove");
+      const target = document.getElementById("wheel-target");
+      const object = document.getElementById("object");
+      const desc = object.querySelector("span");
+      const handleWheel = e => console.log("wheel event observed");
+      const enableDragText = "Now, mouse wheel allowed while dragging.";
+      const disableDragText =
+        "Unfortunately, mouse wheel not allowed while dragging";
+
+      add.addEventListener("click", () => {
+        target.addEventListener("wheel", handleWheel);
+        add.disabled = true;
+        remove.disabled = false;
+        object.style.background = "red";
+        desc.textContent = disableDragText;
+      });
+      remove.addEventListener("click", () => {
+        target.removeEventListener("wheel", handleWheel);
+        add.disabled = false;
+        remove.disabled = true;
+        object.style.background = "lightgreen";
+        desc.textContent = enableDragText;
+      });
+    </script>
+  </body>
+</html>

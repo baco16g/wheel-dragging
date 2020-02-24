@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        height: 200vh;
+      }
+      .draggable {
+        padding: 6px;
+        background: lightgreen;
+        width: 300px;
+        margin-top: 24px;
+        box-shadow: 1px 1px 2px 2px green;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h2>Notice</h2>
+        <ul>
+          <li>
+            <p>
+              Events must be assigned after the init method of this package is
+              called.
+            </p>
+          </li>
+          <li>
+            <p>
+              Events in Iframes can also be monitored. However, follow the above
+              rules for assigning events.
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="controller">
+        <h2>Wheel Evnet Controller</h2>
+        <button id="remove">Remove wheel events</button>
+        <button id="restore" disabled>Restore wheel events</button>
+        <div class="draggable" draggable="true">
+          Try to scroll wheel while dragging me
+        </div>
+      </section>
+      <section id="iframe-section">
+        <h2>Iframe with wheel events</h2>
+      </section>
+    </main>
+    <script type="module">
+      import WheelDragging from "../dist/wheel-dragging.esm.js";
+
+      const instance = new WheelDragging();
+      const removeButton = document.getElementById("remove");
+      const restoreButton = document.getElementById("restore");
+
+      const toggleButton = () => {
+        removeButton.disabled = !removeButton.disabled;
+        restoreButton.disabled = !restoreButton.disabled;
+      };
+
+      const createIframeElement = () => {
+        const iframe = document.createElement("iframe");
+        iframe.setAttribute("src", "./with-wheel-event.html");
+        return iframe;
+      };
+
+      instance.init();
+      document
+        .getElementById("iframe-section")
+        .appendChild(createIframeElement());
+
+      removeButton.addEventListener("click", () => {
+        toggleButton();
+        instance.removeWheelListeners();
+      });
+      restoreButton.addEventListener("click", () => {
+        toggleButton();
+        instance.restoreWheelListeners();
+      });
+    </script>
+  </body>
+</html>

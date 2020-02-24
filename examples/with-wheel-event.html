@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #iframe-target {
+        padding: 6px;
+        border: solid 1px gray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="iframe-target">
+      A wheel event is attached to this element.
+    </div>
+  </body>
+  <script>
+    const target = document.getElementById("iframe-target");
+    target.addEventListener("wheel", function() {
+      console.log("observe wheel events.");
+    });
+  </script>
+</html>
