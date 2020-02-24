@@ -2,7 +2,7 @@
 
 ## Motivation
 
-The specification of drag and drop has the following description.
+[The specification of drag and drop](https://html.spec.whatwg.org/multipage/dnd.html#drag-and-drop-processing-model) has the following description.
 
 > From the moment that the user agent is to initiate the drag-and-drop operation, until the end of the drag-and-drop operation, device input events (e.g. mouse and keyboard events) must be suppressed.
 
